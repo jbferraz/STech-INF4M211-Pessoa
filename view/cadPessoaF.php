@@ -15,6 +15,7 @@ $cadPessoaF = new cPessoaF();
     </head>
     <body>
         <h1>Cadastro de Pessoa Fisíca</h1>
+        <h2>CRUD</h2>
         <a href="../index.php">Voltar</a>
         <br><br>
         <form action="<?php $cadPessoaF->inserirBD(); ?>" method="POST">
