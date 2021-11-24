@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-require_once '../controller/cPessoaF.php';
+require_once '../controller/cPessoaF.php';//require_onde == import do java
 $listPes = $_REQUEST['pessoasF'];//lista do array, não estamos mais usando
 $listPesBD = $_REQUEST['pessoaPFBD']; //lista do BD
 $cadPFs = new cPessoaF();
@@ -43,6 +43,16 @@ $cadPFs = new cPessoaF();
                         <td><?php echo $pf['nome']; ?></td>
                         <td><?php echo $pf['email']; ?></td>
                         <td><?php echo $pf['cpf']; ?></td>
+                        <td>
+                            <form action="editPessoaF.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $pf['idPessoa']; ?>"/>
+                                <input type="submit" name="updatePF" value="Editar"/>
+                            </form>
+                            <form action="<?php $cadPFs->deletePes(); ?>" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $pf['idPessoa']; ?>"/>
+                                <input type="submit" name="delete" value="Deletar"/>
+                            </form>
+                        </td>
                     </tr>
                     <?php
                 endforeach;

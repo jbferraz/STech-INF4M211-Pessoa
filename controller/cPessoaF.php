@@ -156,5 +156,27 @@ class cPessoaF {
             header('Refresh: 0'); // recarrega a pág. F5 em 0 segundos
         }
     }
+    
+    public function getPessoaFById($id) {
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $schema = 'inf4m211';
+        $conexao = mysqli_connect($host, $user, $pass, $schema);
+        if (!$conexao) {
+            die('Não foi possivel conectar. ' . mysqli_error($conexao));
+        }
+
+        $sql = "select * from pessoa where idPessoa = $id";
+        $result = mysqli_query($conexao, $sql);
+        if ($result) {
+            $pfsBD = [];
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($pfsBD, $row);
+            }
+            return $pfsBD;
+        } 
+        mysqli_close($conexao);
+    }
 
 }
