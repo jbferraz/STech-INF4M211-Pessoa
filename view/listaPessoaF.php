@@ -5,8 +5,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-$listPes = $_REQUEST['pessoasF'];
-$listPesBD = $_REQUEST['pessoaPFBD'];
+require_once '../controller/cPessoaF.php';
+$listPes = $_REQUEST['pessoasF'];//lista do array, não estamos mais usando
+$listPesBD = $_REQUEST['pessoaPFBD']; //lista do BD
+$cadPFs = new cPessoaF();
 ?>
 <html>
     <head>
@@ -19,6 +21,7 @@ $listPesBD = $_REQUEST['pessoaPFBD'];
                 <th>Nome</th>
                 <th>e-mail</th>
                 <th>CPF</th>
+                <th>Funções</th>
             </tr>
             <!--
             <?php foreach ($listPes as $pf): ?>

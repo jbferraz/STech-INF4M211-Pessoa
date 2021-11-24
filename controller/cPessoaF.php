@@ -128,10 +128,33 @@ class cPessoaF {
                 array_push($pfsBD, $row);
             }
             $_REQUEST['pessoaPFBD'] = $pfsBD;
-        }else{
+        } else {
             $_REQUEST['pessoaPFBD'] = 0;
         }
         mysqli_close($conexao);
+    }
+
+    public function deletePes() {
+        if (isset($_POST['delete'])) {
+            $id = $_POST['id'];
+            
+            $host = 'localhost';
+            $user = 'root';
+            $pass = '';
+            $schema = 'inf4m211';
+            $conexao = mysqli_connect($host, $user, $pass, $schema);
+            if (!$conexao) {
+                die('Não foi possivel conectar. ' . mysqli_error());
+            }
+            
+            $sql = "delete from pessoa where idPessoa = $id";
+            $result = mysqli_query($conexao, $sql);
+            if(!$result){
+                die('Erro ao deletar. ' . mysqli_error($conexao));
+            }
+            mysqli_close($conexao);
+            header('Refresh: 0'); // recarrega a pág. F5 em 0 segundos
+        }
     }
 
 }
