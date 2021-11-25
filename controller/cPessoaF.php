@@ -180,7 +180,7 @@ class cPessoaF {
     }
     
     public function updatePF() {
-        if (isset($_POST['updatePF'])) {
+        if (isset($_POST['update'])) {
             $host = 'localhost';
             $user = 'root';
             $pass = '';
@@ -206,6 +206,9 @@ class cPessoaF {
                 die('Erro ao atualizar pessoa na tabela. ' . mysqli_error($conexao));
             }
             mysqli_close($conexao);
+            header('Location: ../view/cadPessoaF.php');
+        }
+        if(isset($_POST['cancelar'])){
             header('Location: ../view/cadPessoaF.php');
         }
     }
