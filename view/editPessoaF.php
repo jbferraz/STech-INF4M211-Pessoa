@@ -23,8 +23,6 @@ $pf = $cadPFs->getPessoaFById($id);
         
         <?php
         // put your code here
-        var_dump($pf);
-        echo "<br>" . $pf[0]['nome'];
         ?>
     </body>
 </html>
