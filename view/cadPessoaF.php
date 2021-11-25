@@ -18,18 +18,19 @@ $cadPessoaF = new cPessoaF();
         <h2>CRUD</h2>
         <a href="../index.php">Voltar</a>
         <br><br>
-        <form action="<?php $cadPessoaF->inserirBD(); ?>" method="POST">
-            <input type="text" required placeholder="Nome aqui..." name="nome">
+        <form action="<?php $cadPessoaF->inserirBD(); ?>" method="POST"/>
+            <input type="text" required placeholder="Nome aqui..." name="nome"/>
             <br><br>
-            <input type="tel" required placeholder="Telefon aqui..." name="telefone">
+            <input type="tel" required placeholder="Telefon aqui..." name="telefone"/>
             <br><br>
-            <input type="email" required placeholder="E-mail aqui..." name="email">
+            <input type="email" required placeholder="E-mail aqui..." name="email"/>
             <br><br>
-            <input type="text" placeholder="Endereço aqui..." name="endereco">
+            <input type="text" placeholder="Endereço aqui..." name="endereco"/>
             <br><br>
-            <input type="number" required placeholder="CPF aqui..." name="cpf">
+            <input type="text" required placeholder="CPF aqui..." 
+                   minlength="11" maxlength="11" name="cpf"/>
             <br><br>
-            <input type="text" placeholder="RG aqui..." name="rg">
+            <input type="text" placeholder="RG aqui..." minlength="10" maxlength="10" name="rg"/>
             <br><br>
             <input type="radio" value="F" name="sexo">Feminino
             <input type="radio" value="M" name="sexo">Masculino
